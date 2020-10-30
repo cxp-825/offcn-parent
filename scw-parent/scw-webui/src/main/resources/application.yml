@@ -1,0 +1,39 @@
+server:
+  port: 9500
+
+#mysql和mybatis的配置在当前UI模块中不用
+spring:
+  application:
+    name: SCW-UI
+
+  redis:
+    host: 192.168.52.140
+    port: 6379
+    password: root
+
+  session:
+    store-type: redis
+    timeout: 1800
+  thymeleaf:
+    cache: false #禁用了缓存
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+
+feign:
+  hystrix:
+    enabled: true  #开启Feign的熔断功能
+  client:
+    config:
+      default:
+        connectTimeout: 2000  #连接超时时间2秒
+        readTimeout: 2000     #读超时时间2秒
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000 #设置熔断时间10秒

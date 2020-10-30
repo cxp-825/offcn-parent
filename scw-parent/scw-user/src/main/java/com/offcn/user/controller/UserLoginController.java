@@ -14,10 +14,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 @Api(tags = "用户登录，注册模块")
 @RestController
+@RequestMapping("/user")
 public class UserLoginController {
 
     @Autowired
@@ -90,7 +88,7 @@ public class UserLoginController {
             @ApiImplicitParam(name = "password", value = "用户密码", required = true)
     })
     @PostMapping("login")
-    public AppResponse<UserRespVo> login(String username, String password) {
+    public AppResponse<UserRespVo> login(@RequestParam("loginacct") String username, @RequestParam("password")String password) {
         //登录
         TMember member = userService.login(username,password);
         //登陆失败

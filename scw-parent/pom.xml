@@ -6,7 +6,8 @@
 		<module>scw-user</module>
 		<module>scw-project</module>
 		<module>scw-order</module>
-	</modules>
+        <module>scw-webui</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

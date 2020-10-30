@@ -81,7 +81,7 @@ public class ProjectInfoController {
     }
 
     @ApiOperation("获取项目信息详情")
-    @GetMapping("/findProjectInfo/{projectId}")
+    @GetMapping("/findProjectById/{projectId}")
     public AppResponse<ProjectDetailVo> findProjectInfo(@PathVariable("projectId") Integer projectId) {
         //数据库查询的出的结果
         TProject projectInfo = projectInfoService.findProjectInfo(projectId);
@@ -127,8 +127,8 @@ public class ProjectInfoController {
     }
 
     @ApiOperation("获取回报信息")
-    @GetMapping("/returns/info/{returnId}")
-    public AppResponse<TReturn> findReturnInfo(@PathVariable("returnId") Integer returnId) {
+    @GetMapping("/findReturnByRid/{returnId}")
+    public AppResponse<TReturn> findReturnByRid(@PathVariable("returnId") Integer returnId) {
         TReturn returnById = projectInfoService.findReturnById(returnId);
         return AppResponse.ok(returnById);
     }
