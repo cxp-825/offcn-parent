@@ -1,0 +1,42 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: SCW-PROJECT
+
+  datasource:
+    username: root
+    password: cxp
+    url: jdbc:mysql://localhost:3306/atcrowdfunding?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  redis:
+    host: 192.168.52.140
+    port: 6379
+    password: root
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:com/offcn/project/mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10000/eureka/
+
+
+logging:
+  file:
+    path: D:\CodeData\log\scw-user
+  level:
+    com:
+      offcn: debug
+
+oss:
+  endpoint: oss-cn-beijing.aliyuncs.com
+  accessKeyId: LTAI4GBATWmH1sgE5t9tERyt
+  accessKeySecret: AAcikpa1zieBi43zKdREY0xn90EBPc
+  bucketName: offcn2020cxp
